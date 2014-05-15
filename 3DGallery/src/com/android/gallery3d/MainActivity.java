@@ -2,10 +2,6 @@ package com.android.gallery3d;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 
 public class MainActivity extends Activity {
 
