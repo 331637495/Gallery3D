@@ -28,8 +28,8 @@ public class GallyFlow extends Gallery {
 		setStaticTransformationsEnabled(true);
 	}
 
-//	private int maxZoom = -250; // 最大缩放值
-	private int maxRotateAngle = 50; // 最大旋转角度
+	private int maxZoom = -300; // 最大缩放值
+	private int maxRotateAngle = 60; // 最大旋转角度
 	private int galleryOfCenter; //gallery展示区域的中心点
 	private Camera camera = new Camera();
 
@@ -62,7 +62,7 @@ public class GallyFlow extends Gallery {
 		// View child指定的图片
 		// Transformation 变形的样子
 		
-		int width = child.getWidth();
+		int width = child.getLayoutParams().width;
 //		int height = child.getHeight();
 		
 		int rotateAngle = 0;
@@ -78,17 +78,19 @@ public class GallyFlow extends Gallery {
 			transformationBitmap((ImageView)child,t,rotateAngle);
 		}else {
 			//经过换算得到角度
-			rotateAngle = (int) ((float)(galleryOfCenter - childOfCenter)/width *maxRotateAngle);
+			rotateAngle = (int) ((float)(galleryOfCenter - childOfCenter)*maxRotateAngle/width );
 //			rotateAngle = (int) ((float)(childOfCenter - galleryOfCenter )/width *maxRotateAngle);
 			//最大角度是50  需要转换成50以内的度数
 			if(Math.abs(rotateAngle) > maxRotateAngle){
 				//-50  ----50
+				System.out.println("----------->>"+rotateAngle);
 				rotateAngle = rotateAngle > 0? maxRotateAngle : -maxRotateAngle;
+				System.out.println("----------->>"+rotateAngle);
 			}
-			if(Math.abs(rotateAngle) < 20){
-				//-50  ----50
-				rotateAngle = 0;
-			}
+//			if(Math.abs(rotateAngle) < 20){
+//				//-50  ----50
+//				rotateAngle = 0;
+//			}
 			transformationBitmap((ImageView)child,t,rotateAngle);
 		}
 		
@@ -104,14 +106,14 @@ public class GallyFlow extends Gallery {
 		//变形样式
 		Matrix imageMatrix = t.getMatrix();
 		//得到图片宽高
-		int width = child.getWidth();
-		int height = child.getHeight();
+		int width = child.getLayoutParams().width;
+		int height = child.getLayoutParams().height;
 		
 		int rotate = Math.abs(rotateAngle); //图片的旋转度
 		
 		camera.translate(0.0f, 0.0f, 100.0f);
 		if (rotate <maxRotateAngle) {
-			float zoom = (float) (rotate * 1.5 + maxRotateAngle);
+			float zoom = (float) (rotate * 1.5 + maxZoom);
 			camera.translate(0.0f, 0.0f, zoom);
 			
 			//设置图片的透明度

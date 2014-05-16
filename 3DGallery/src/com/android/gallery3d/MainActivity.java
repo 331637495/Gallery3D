@@ -22,14 +22,18 @@ public class MainActivity extends Activity {
 		
 		//生成带有倒影效果的图片
 		imageAdapter.createReflectionBitmap();
-		
+		gallyFlow.setFadingEdgeLength(0);
+		gallyFlow.setSpacing(-100);
 		gallyFlow.setAdapter(imageAdapter);
+		gallyFlow.setSelection(4);
+
 	}
 
 	private void initData() {
-		imageIds = new int[] { R.drawable.photo1, R.drawable.photo2,
-				R.drawable.photo3, R.drawable.photo4, R.drawable.photo5,
-				R.drawable.photo6, R.drawable.photo7, R.drawable.photo8 };
+		imageIds = new int[] { R.drawable.a, R.drawable.b,
+				R.drawable.c, R.drawable.d, R.drawable.e,
+				R.drawable.f , R.drawable.g,
+				R.drawable.h};
 	}
 
 	/*

@@ -118,7 +118,7 @@ public class ImageAdapter extends BaseAdapter {
 			//��ʾԴͼƬ
 			ImageView imageView = new ImageView(context);
 			imageView.setImageBitmap(bitmap);
-			imageView.setLayoutParams(new GallyFlow.LayoutParams(240,320));
+			imageView.setLayoutParams(new GallyFlow.LayoutParams(300,400));
 			images[index++] = imageView;
 		}
 		

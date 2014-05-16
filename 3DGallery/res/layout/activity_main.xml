@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.android.gallery3d.MainActivity"
-    android:background="@android:color/black" >
+    android:background="#3179E7" >
     
     <com.android.gallery3d.GallyFlow 
         android:id="@+id/gallery"
