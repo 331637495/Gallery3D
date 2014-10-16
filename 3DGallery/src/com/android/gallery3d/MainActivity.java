@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
 		//生成带有倒影效果的图片
 		imageAdapter.createReflectionBitmap();
 		gallyFlow.setFadingEdgeLength(0);
-		gallyFlow.setSpacing(-100);
+//		gallyFlow.setSpacing(-100);
 		gallyFlow.setAdapter(imageAdapter);
 		gallyFlow.setSelection(4);
 
